@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -14,6 +16,74 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController emailController = TextEditingController();
   bool showPassword = true;
   bool isSignIn = true;
+
+  snackBar(String title) {
+    Size deviceSize = MediaQuery.of(context).size;
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          title,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: deviceSize.width * 0.036),
+        ),
+        duration: const Duration(milliseconds: 800),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.green,
+        elevation: 8.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(100.0),
+        ),
+      ),
+    );
+  }
+
+  void signUserUp() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    } catch (error) {
+      if (error is FirebaseAuthException) {
+        switch (error.code) {
+          case 'weak-password':
+            snackBar('Password should be at least 6 characters');
+            break;
+          case 'invalid-email':
+            snackBar('The email address is not correct');
+            break;
+          case 'email-already-in-use':
+            snackBar('The email address is already in use by another account');
+            break;
+          default:
+            snackBar('An unexpected error occurred. Please try again later.');
+          // print('Firebase Auth error: ${error.code}');
+        }
+        // print('error ${error.toString()}');
+      } else {
+        snackBar('An unexpected error occurred. Please try again later.');
+        // print('Unexpected error: $error');
+      }
+    }
+  }
+
+  void signUserIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: userNameController.text,
+        password: passwordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'wrong-password') {
+        snackBar('The password is wrong');
+      } else if (e.code == 'invalid-email') {
+        snackBar('The email is invalid');
+      } else if (e.code == 'invalid-credential') {
+        snackBar('The email or password is wrong');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
@@ -183,7 +253,10 @@ class _SignInPageState extends State<SignInPage> {
             ),
             SizedBox(height: deviceSize.height * 0.03),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                isSignIn ? signUserIn() : signUserUp();
+                // signUserIn();
+              },
               style: TextButton.styleFrom(
                 backgroundColor: Colors.green,
                 shape: RoundedRectangleBorder(

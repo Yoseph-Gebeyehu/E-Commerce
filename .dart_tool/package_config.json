@@ -116,6 +116,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "http",
+      "rootUri": "file:///Users/chapamobile1/.pub-cache/hosted/pub.dev/http-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "http_parser",
       "rootUri": "file:///Users/chapamobile1/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
       "packageUri": "lib/",
@@ -230,7 +236,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-02-26T09:01:48.640488Z",
+  "generated": "2024-03-04T07:18:05.328187Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }
