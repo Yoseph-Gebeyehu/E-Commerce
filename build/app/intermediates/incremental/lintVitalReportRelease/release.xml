@@ -1,0 +1,40 @@
+<variant
+    name="release"
+    package="com.example.e_commerce"
+    minSdkVersion="19"
+    targetSdkVersion="33"
+    shrinking="true"
+    mergedManifest="/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/intermediates/merged_manifest/release/AndroidManifest.xml"
+    manifestMergeReport="/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/outputs/logs/manifest-merger-release-report.txt"
+    proguardFiles="/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/intermediates/default_proguard_files/global/proguard-android.txt-7.3.0:/Users/chapamobile1/Downloads/flutter/packages/flutter_tools/gradle/flutter_proguard_rules.pro:proguard-rules.pro"
+    partialResultsDir="/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/intermediates/lint_vital_partial_results/release/out">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifest="src/main/AndroidManifest.xml"
+        javaDirectories="src/main/java:src/main/kotlin"
+        resDirectories="src/main/res"
+        assetsDirectories="src/main/assets"/>
+    <sourceProvider
+        manifest="src/release/AndroidManifest.xml"
+        javaDirectories="src/release/java:src/release/kotlin"
+        resDirectories="src/release/res"
+        assetsDirectories="src/release/assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <manifestPlaceholders>
+    <placeholder
+        name="applicationName"
+        value="android.app.Application" />
+  </manifestPlaceholders>
+  <mainArtifact
+      classOutputs="/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/intermediates/javac/release/classes:/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/tmp/kotlin-classes/release:/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/kotlinToolingMetadata:/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/intermediates/compile_and_runtime_not_namespaced_r_class_jar/release/R.jar"
+      applicationId="com.example.e_commerce"
+      generatedSourceFolders="/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/generated/ap_generated_sources/release/out:/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/generated/aidl_source_output_dir/release/out:/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/generated/source/buildConfig/release:/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/generated/renderscript_source_output_dir/release/out"
+      generatedResourceFolders="/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/generated/res/rs/release:/Users/chapamobile1/Documents/MyProjects/E-Commerce/build/app/generated/res/resValues/release">
+  </mainArtifact>
+</variant>

@@ -40,7 +40,7 @@ class _SignInPageState extends State<SignInPage> {
   void signUserUp() async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text,
+        email: passwordController.text,
         password: passwordController.text,
       );
     } catch (error) {
@@ -96,7 +96,6 @@ class _SignInPageState extends State<SignInPage> {
                 Container(
                   height: deviceSize.height * 0.4,
                   decoration: const BoxDecoration(
-                    color: Colors.red,
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(200.0),
                     ),
@@ -122,6 +121,8 @@ class _SignInPageState extends State<SignInPage> {
                     child: TextButton(
                       onPressed: () {
                         setState(() {
+                          userNameController.text = '';
+                          passwordController.text = '';
                           isSignIn = true;
                         });
                       },
@@ -151,6 +152,9 @@ class _SignInPageState extends State<SignInPage> {
                     child: TextButton(
                       onPressed: () {
                         setState(() {
+                          userNameController.text = '';
+                          passwordController.text = '';
+                          emailController.text = '';
                           isSignIn = false;
                         });
                       },
