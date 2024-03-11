@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/product_detail_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -158,11 +159,20 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(24),
-                    child: Image.network(
-                      productList!.products[i].thumbnail,
-                      fit: BoxFit.cover,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductDetailPage(
+                          product: productList!.products[i],
+                        ),
+                      ));
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(24),
+                      child: Image.network(
+                        productList!.products[i].thumbnail,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

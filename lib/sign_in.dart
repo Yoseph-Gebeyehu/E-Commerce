@@ -40,7 +40,7 @@ class _SignInPageState extends State<SignInPage> {
   void signUserUp() async {
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: passwordController.text,
+        email: emailController.text,
         password: passwordController.text,
       );
     } catch (error) {
@@ -181,9 +181,8 @@ class _SignInPageState extends State<SignInPage> {
                   width: 1,
                 ),
               ),
-              height: isSignIn
-                  ? deviceSize.height * 0.17
-                  : deviceSize.height * 0.25,
+              height:
+                  isSignIn ? deviceSize.height * 0.2 : deviceSize.height * 0.28,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

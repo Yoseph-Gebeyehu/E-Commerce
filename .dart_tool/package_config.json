@@ -98,6 +98,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///Users/chapamobile1/.pub-cache/hosted/pub.dev/flutter_rating_bar-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/chapamobile1/Downloads/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -176,6 +182,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "smooth_page_indicator",
+      "rootUri": "file:///Users/chapamobile1/.pub-cache/hosted/pub.dev/smooth_page_indicator-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///Users/chapamobile1/.pub-cache/hosted/pub.dev/source_span-1.10.0",
       "packageUri": "lib/",
@@ -236,7 +248,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-03-04T07:18:05.328187Z",
+  "generated": "2024-03-11T11:28:34.318061Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }
