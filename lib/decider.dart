@@ -1,5 +1,5 @@
-import 'package:e_commerce/screens/home.dart';
-import 'package:e_commerce/sign_in.dart';
+import 'package:e_commerce/screens/home/home.dart';
+import 'package:e_commerce/screens/sign-in/sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

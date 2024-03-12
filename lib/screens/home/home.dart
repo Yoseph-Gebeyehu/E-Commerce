@@ -1,10 +1,10 @@
-import 'package:e_commerce/screens/product_detail_page.dart';
+import 'package:e_commerce/screens/product-detail/product_detail_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../api/api_client.dart';
-import '../decider.dart';
-import '../models/product_list.dart';
+import '../../api/api_client.dart';
+import '../../decider.dart';
+import '../../models/product_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
