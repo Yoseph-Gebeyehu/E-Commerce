@@ -1,7 +1,10 @@
+import 'package:e_commerce/api/api_client.dart';
+import 'package:e_commerce/models/api_request.dart';
 import 'package:e_commerce/models/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class ProductDetailPage extends StatefulWidget {
@@ -169,7 +172,32 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               ),
               const SizedBox(height: 20),
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  ApiRequest apiRequest = ApiRequest(
+                    email: 'jossy@gmail.com',
+                    amount: widget.product.price.toString(),
+                    firstName: 'Jowa',
+                    lastName: 'San',
+                    phoneNumber: '0911223344',
+                    txRef: 'aaaaa',
+                    currency: 'ETB',
+                    callbackUrl: '',
+                    returnUrl: '',
+                    customization: Customization(
+                      title: widget.product.title,
+                      description: widget.product.description,
+                    ),
+                  );
+                  var response = await ApiClient().postData(apiRequest);
+                  print(response.body);
+                  if (response.status == 200) {
+                    String? checkoutUrl = response.checkoutUrl;
+                    if (!await launchUrl(Uri.parse(checkoutUrl!))) {
+                      throw Exception(
+                          'Could not launch ${Uri.parse(checkoutUrl)}');
+                    }
+                  }
+                },
                 child: Container(
                   height: deviceSize.height * 0.05,
                   width: double.infinity,

@@ -1,31 +1,37 @@
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
-
 class ApiResponse {
   int? status;
   dynamic body;
+  String? checkoutUrl;
 
   ApiResponse({
     required this.status,
     this.body,
+    this.checkoutUrl,
   });
 
-  factory ApiResponse.fromResponse(http.Response response) {
+  factory ApiResponse.fromResponse(dynamic response) {
     int code = response.statusCode;
-    String responseBody = response.body;
+    dynamic body;
+    String? checkoutUrl;
 
-    dynamic decodedBody;
     try {
-      decodedBody = jsonDecode(responseBody);
-      // print(decodedBody);
+      body = jsonDecode(response.body);
     } catch (e) {
-      decodedBody = null;
+      body = null;
+    }
+
+    try {
+      checkoutUrl = body['data']['checkout_url'];
+    } catch (e) {
+      checkoutUrl = '';
     }
 
     return ApiResponse(
       status: code,
-      body: decodedBody,
+      body: body,
+      checkoutUrl: checkoutUrl,
     );
   }
 }
