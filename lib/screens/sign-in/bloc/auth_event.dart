@@ -25,4 +25,7 @@ class SignupButtonEvent extends AuthenticationEvent {
   });
 }
 
-class ForgotPasswordEvent extends AuthenticationEvent {}
+class ForgotPasswordEvent extends AuthenticationEvent {
+  final String email;
+  ForgotPasswordEvent({required this.email});
+}

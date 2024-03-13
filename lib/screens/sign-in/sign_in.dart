@@ -1,3 +1,5 @@
+import 'package:e_commerce/screens/forgot-password/forgot_password.dart';
+import 'package:e_commerce/screens/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,89 +19,23 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController forgotEmailController = TextEditingController();
   bool showPassword = true;
   bool isSignIn = true;
 
-  snackBar(String title) {
-    Size deviceSize = MediaQuery.of(context).size;
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          title,
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: deviceSize.width * 0.036),
-        ),
-        duration: const Duration(milliseconds: 800),
-        behavior: SnackBarBehavior.floating,
-        backgroundColor: Colors.green,
-        elevation: 8.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(100.0),
-        ),
-      ),
-    );
-  }
-
   void signUserUp() async {
-    context.read<AuthenticationBloc>().add(
-          SignupButtonEvent(
-            email: emailController.text,
-            password: passwordController.text,
-            userName: 'asdfads',
-          ),
-        );
-    print(emailController.text);
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-    } catch (error) {
-      if (error is FirebaseAuthException) {
-        switch (error.code) {
-          case 'weak-password':
-            snackBar('Password should be at least 6 characters');
-            break;
-          case 'invalid-email':
-            snackBar('The email address is not correct');
-            break;
-          case 'email-already-in-use':
-            snackBar('The email address is already in use by another account');
-            break;
-          default:
-            snackBar('An unexpected error occurred. Please try again later.');
-          // print('Firebase Auth error: ${error.code}');
-        }
-        // print('error ${error.toString()}');
-      } else {
-        snackBar('An unexpected error occurred. Please try again later.');
-        // print('Unexpected error: $error');
-      }
-    }
+    context.read<AuthenticationBloc>().add(SignupButtonEvent(
+          email: emailController.text,
+          password: passwordController.text,
+          userName: 'asdfads',
+        ));
   }
 
   void signUserIn() async {
-    context.read<AuthenticationBloc>().add(
-          SigninButtonEvent(
-            email: emailController.text,
-            password: passwordController.text,
-          ),
-        );
-    print('email: ${emailController.text}');
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'wrong-password') {
-        snackBar('The password is wrong');
-      } else if (e.code == 'invalid-email') {
-        snackBar('The email is invalid');
-      } else if (e.code == 'invalid-credential') {
-        snackBar('The email or password is wrong');
-      }
-    }
+    context.read<AuthenticationBloc>().add(SigninButtonEvent(
+          email: emailController.text,
+          password: passwordController.text,
+        ));
   }
 
   @override
@@ -108,7 +44,13 @@ class _SignInPageState extends State<SignInPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: BlocConsumer<AuthenticationBloc, AuthenticationState>(
-          listener: (context, state) {},
+          listener: (context, state) {
+            if (state is AuthenticationSuccessState) {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (context) => const HomePage(),
+              ));
+            }
+          },
           builder: (context, state) {
             return Column(
               children: [
@@ -141,12 +83,14 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            setState(() {
-                              userNameController.text = '';
-                              passwordController.text = '';
-                              emailController.text = '';
-                              isSignIn = true;
-                            });
+                            if (isSignIn == false) {
+                              setState(() {
+                                userNameController.text = '';
+                                passwordController.text = '';
+                                emailController.text = '';
+                                isSignIn = true;
+                              });
+                            }
                           },
                           child: Text(
                             'Sign in',
@@ -173,12 +117,14 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         child: TextButton(
                           onPressed: () {
-                            setState(() {
-                              userNameController.text = '';
-                              passwordController.text = '';
-                              emailController.text = '';
-                              isSignIn = false;
-                            });
+                            if (isSignIn == true) {
+                              setState(() {
+                                userNameController.text = '';
+                                passwordController.text = '';
+                                emailController.text = '';
+                                isSignIn = false;
+                              });
+                            }
                           },
                           child: Text(
                             'Sign up',
@@ -205,7 +151,6 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   height: deviceSize.height * 0.2,
-                  // : deviceSize.height * 0.28,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -225,28 +170,6 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       const Divider(),
-                      // Visibility(
-                      //   visible: !isSignIn,
-                      //   child: ListTile(
-                      //     leading: const Icon(
-                      //       Icons.email,
-                      //       color: Colors.green,
-                      //     ),
-                      //     title: TextFormField(
-                      //       controller: userNameController,
-                      //       cursorColor: Colors.green,
-                      //       decoration: const InputDecoration(
-                      //         hintText: 'Email',
-                      //         border: InputBorder.none,
-                      //         hintStyle: TextStyle(color: Colors.grey),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      // Visibility(
-                      //   visible: !isSignIn,
-                      //   child: const Divider(),
-                      // ),
                       ListTile(
                         leading: const Icon(
                           Icons.lock,
@@ -337,7 +260,14 @@ class _SignInPageState extends State<SignInPage> {
                 Visibility(
                   visible: isSignIn,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // forgotPassword();
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const ForgotPasswrodPage(),
+                        ),
+                      );
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(
