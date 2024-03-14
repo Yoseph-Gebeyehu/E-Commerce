@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:e_commerce/screens/forgot-password/forgot_password.dart';
 import 'package:e_commerce/screens/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -21,6 +22,12 @@ class _SignInPageState extends State<SignInPage> {
   bool showPassword = true;
   bool isSignIn = true;
 
+  @override
+  void initState() {
+    super.initState();
+    checkInternetConnectivity();
+  }
+
   void signUserUp() async {
     context.read<AuthenticationBloc>().add(SignupButtonEvent(
           email: emailController.text,
@@ -34,6 +41,17 @@ class _SignInPageState extends State<SignInPage> {
           email: emailController.text,
           password: passwordController.text,
         ));
+  }
+
+  Future<bool> checkInternetConnectivity() async {
+    var connectivityResult = await Connectivity().checkConnectivity();
+    if (connectivityResult == ConnectivityResult.none) {
+      print(connectivityResult);
+      return false;
+    } else {
+      print(connectivityResult);
+      return true;
+    }
   }
 
   @override
