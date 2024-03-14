@@ -1,0 +1,1 @@
+ /Users/chapamobile1/Documents/MyProjects/E-Commerce/.dart_tool/flutter_build/2a62d56f2f8ceb829e12393d7270bcc2/native_assets.yaml: 

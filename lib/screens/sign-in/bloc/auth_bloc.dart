@@ -22,6 +22,7 @@ class AuthenticationBloc
     }
 
     on<AuthenticationEvent>((event, emit) async {});
+
     on<SigninButtonEvent>((event, emit) async {
       if (event.email.isNotEmpty && event.password.isNotEmpty) {
         emit(AuthenticationLoadingState());
@@ -56,6 +57,7 @@ class AuthenticationBloc
         );
       }
     });
+
     on<SignupButtonEvent>((event, emit) async {
       if (event.email.isNotEmpty && event.password.isNotEmpty) {
         try {
@@ -109,6 +111,7 @@ class AuthenticationBloc
         );
       }
     });
+
     on<ForgotPasswordEvent>((event, emit) async {
       try {
         await FirebaseAuth.instance.sendPasswordResetEmail(email: event.email);

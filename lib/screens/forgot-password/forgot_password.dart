@@ -71,11 +71,9 @@ class _ForgotPasswrodPageState extends State<ForgotPasswrodPage> {
               height: deviceSize.height * 0.07,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                // color: const Color.fromARGB(255, 223, 233, 223),
                 border: Border.all(
-                  // color: const Color.fromARGB(255, 7, 74, 77),
                   color: Colors.green,
-                  width: 1, // Set the border width
+                  width: 1,
                 ),
               ),
               child: Center(
@@ -95,9 +93,7 @@ class _ForgotPasswrodPageState extends State<ForgotPasswrodPage> {
             ElevatedButton(
               onPressed: () {
                 context.read<AuthenticationBloc>().add(
-                      ForgotPasswordEvent(
-                        email: forgotEmailController.text,
-                      ),
+                      ForgotPasswordEvent(email: forgotEmailController.text),
                     );
               },
               style: ElevatedButton.styleFrom(
@@ -105,10 +101,9 @@ class _ForgotPasswrodPageState extends State<ForgotPasswrodPage> {
                   deviceSize.width * 1,
                   deviceSize.height * 0.07,
                 ),
-                // backgroundColor: const Color.fromARGB(255, 7, 74, 77),
                 backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
-                elevation: 8.0,
+                elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   side: const BorderSide(

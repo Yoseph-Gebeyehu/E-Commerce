@@ -16,10 +16,8 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController forgotEmailController = TextEditingController();
   bool showPassword = true;
   bool isSignIn = true;
 
@@ -85,7 +83,6 @@ class _SignInPageState extends State<SignInPage> {
                           onPressed: () {
                             if (isSignIn == false) {
                               setState(() {
-                                userNameController.text = '';
                                 passwordController.text = '';
                                 emailController.text = '';
                                 isSignIn = true;
@@ -119,7 +116,6 @@ class _SignInPageState extends State<SignInPage> {
                           onPressed: () {
                             if (isSignIn == true) {
                               setState(() {
-                                userNameController.text = '';
                                 passwordController.text = '';
                                 emailController.text = '';
                                 isSignIn = false;
