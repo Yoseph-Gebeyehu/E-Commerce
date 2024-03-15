@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		B9sGviHvLWpYWCB1uI286V43XsE=
+		kXKQPqb/MV2UWa9DIJjdSGDX8Uc=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		US4JrtI/R0xqbPpOEn8ATV/gg+I=
+		AF8ewHpE0b4Nrp+bbfAdlW56NiQ=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,11 +22,19 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		VP5+vt3zpYhf5stWxO5JnQuChFY=
+		ixRxi6dMpqkBbQpSU8DVczrwXHI=
+		</data>
+		<key>flutter_assets/assets/forgot_password.webp</key>
+		<data>
+		o+lKWR/wDSuu1NqfGKZXsUnLmlk=
 		</data>
 		<key>flutter_assets/assets/mac_image.webp</key>
 		<data>
 		Ji+k8jNy9eny6ypi3DjhfU/Xa/c=
+		</data>
+		<key>flutter_assets/assets/no_internet.json</key>
+		<data>
+		aPU7UmEEhmtlW8H2dXbwDK1AZ+I=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -38,11 +46,19 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		r4rE1jAb+vO9qF6khPiv4A/bVoI=
+		MgpKHpVqytgCAXqmQIe1MjNlwAA=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
+		</data>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<data>
+		w0yScZgyE5s0j7sPuGOLXy3ISfM=
+		</data>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<data>
+		gPIgba2QIn/qWmLFfVogsD4MxPU=
 		</data>
 		<key>flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf</key>
 		<data>
@@ -71,14 +87,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			8Ke6IwzYCz/z9v768+B+XUC8lHdQwUjWE3j2DVcUtow=
+			Y2EDUbo4OaeKMpFqepmPST5sdePWmD/ALCbFcJjkc/8=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wRHFN/+zXjoWAkOv8TRxuUFS/LTjmdfA8CU8/9I+dV0=
+			Euqv9Lk2HauSAI50oFl1TZLsrVLwSQ9Z5QtsOXD1Nok=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -92,7 +108,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YQVav/Y2GnuKnsS7zmMwfymWXFLVh+kHSlrbhbiGHHg=
+			nfKLfPu6ZPQFK7PrWdXavVSe0530PMbDwWZP1SXgZJc=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/forgot_password.webp</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			gkKxsjDrPz8jIihtIbrILQDd4ddSCXAnW0WO4nlHCNQ=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/mac_image.webp</key>
@@ -100,6 +123,13 @@
 			<key>hash2</key>
 			<data>
 			VWSUepUhH22zKhnnXh/8jKpTFPebSZ2wXUURWMADumU=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/no_internet.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			AJgOiMyojIiBlVNmEjGS7quqIo1TG3lr6f2AQfUdrCc=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -120,7 +150,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YAogG8ABXL5+UYihA4E5XWkl++IJihhOBWwRR6tvVCk=
+			bezgZkXkl48Xe8KxUgmGID77bQFdaxoUuTUn3c2mRCs=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -128,6 +158,20 @@
 			<key>hash2</key>
 			<data>
 			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.css</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			OA6cPd56JZLHb6TFMDSJcQW1dQpoPp1gk3TDCrW7kJY=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/fluttertoast/assets/toastify.js</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zYIrdfUdie9n3mKKElLvN1sxiImupJ++RP/PCwgqbb0=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf</key>
